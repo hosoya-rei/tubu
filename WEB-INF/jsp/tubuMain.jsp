@@ -28,7 +28,8 @@
 			</form>
 			<%if (tweets != null) {%>
 				<%for(Tweet t : tweets) {%>
-					<p><%=name%>:<%=t.getTweet()%></p>
+					<%User u = t.getUsr();%>
+					<p><%=u.getName()%>:<%=t.getTweet()%></p>
 				<%}%>
 			<%}%>
 		</center>

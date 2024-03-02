@@ -10,7 +10,7 @@
 		<center>
 			<h3>LOGOUT</h3>
 			<p>ログアウトしました。</p>
-			<a href="postCtl">go to top page</a>
+			<a href="logoutCtl?action=logout">go to top page</a>
 		</center>
 	</body>
 </html>

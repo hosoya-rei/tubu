@@ -22,8 +22,6 @@ public class PostCtl extends HttpServlet {
 		if (action.equals("update") || action.equals("go")) {
 			forwardPath = "WEB-INF/jsp/tubuMain.jsp";
 		}
-		if (action.equals("logout"))
-			forwardPath = "WEB-INF/jsp/logout.jsp";
 
 		RequestDispatcher disp = request.getRequestDispatcher(forwardPath);
 		disp.forward(request, response);
@@ -44,8 +42,12 @@ public class PostCtl extends HttpServlet {
 		ServletContext application = request.getServletContext();
 
 		usr = (User)session.getAttribute("usr");
+		tweets = (ArrayList<Tweet>)application.getAttribute("tweets");
+
+		if (tweets == null) {
+			tweets = new ArrayList<Tweet>();
+		}
 		tweet = new Tweet(usr,text);
-		tweets = new ArrayList<Tweet>();
 		tweets.add(tweet);
 		application.setAttribute("tweets",tweets);
 
